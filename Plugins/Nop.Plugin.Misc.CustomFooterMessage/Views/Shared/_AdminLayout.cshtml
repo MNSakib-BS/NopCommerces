@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Admin Area</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/admin.css" />
+</head>
+<body>
+    <div class="container">
+        @* Notification Logic *@
+        @if (TempData["SuccessNotification"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["SuccessNotification"]
+            </div>
+        }
+        @if (TempData["ErrorNotification"] != null)
+        {
+            <div class="alert alert-danger">
+                @TempData["ErrorNotification"]
+            </div>
+        }
+
+        @RenderBody()
+    </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+@model CustomFooterMessageModel
+<div>
+    <form asp-action="Configure" method="post">
+        <div class="form-group">
+            <label asp-for="Message">Footer Message</label>
+            <input asp-for="Message" class="form-control" />
+            <span asp-validation-for="Message" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>

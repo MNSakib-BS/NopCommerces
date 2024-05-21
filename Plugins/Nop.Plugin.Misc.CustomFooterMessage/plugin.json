@@ -1,0 +1,8 @@
+﻿{
+  "Group": "Misc",
+  "FriendlyName": "Custom Footer Message",
+  "SystemName": "CustomFooterMessage",
+  "Version": "1.0",
+  "SupportedVersions": [ "4.50" ],
+  "Author": "Sakib vaia"
+}
