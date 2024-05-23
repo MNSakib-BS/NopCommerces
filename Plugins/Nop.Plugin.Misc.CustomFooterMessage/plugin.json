@@ -1,8 +1,11 @@
 ﻿{
   "Group": "Misc",
   "FriendlyName": "Custom Footer Message",
-  "SystemName": "CustomFooterMessage",
+  "SystemName": "Misc.CustomFooterMessage",
   "Version": "1.0",
-  "SupportedVersions": [ "4.50" ],
-  "Author": "Sakib vaia"
+  "SupportedVersions": [ "4.70" ],
+  "Author": "Sakib vaia",
+  "DisplayOrder": 1,
+  "Description": "A plugin to add custom messages to the footer.",
+  "Category": "Misc"
 }
