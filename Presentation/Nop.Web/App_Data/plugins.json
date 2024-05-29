@@ -70,6 +70,14 @@
     {
       "SystemName": "Widgets.What3words",
       "Version": "4.70.4"
+    },
+    {
+      "SystemName": "Misc.NopstationTeam",
+      "Version": "1.0.0"
+    },
+    {
+      "SystemName": "Misc.NopstationTeamTest",
+      "Version": "1.0.0"
     }
   ],
   "PluginNamesToUninstall": [],

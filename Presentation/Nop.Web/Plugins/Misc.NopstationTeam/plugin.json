@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Misc",
+  "FriendlyName": "NopstationTeam",
+  "SystemName": "Misc.NopstationTeam",
+  "Version": "1.0.0",
+  "SupportedVersions": [ "4.70" ],
+  "Author": "Nopstation Team",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Misc.NopstationTeam.dll",
+  "Description": "This plugin allows you to add team members"
+}
