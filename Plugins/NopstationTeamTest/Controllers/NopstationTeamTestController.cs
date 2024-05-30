@@ -22,22 +22,26 @@ namespace Nop.Plugin.Misc.NopstationTeamTest.Controllers
             var model = new Employee();
             return View("~/Plugins/Misc.NopstationTeamTest/Views/Configure.cshtml", model);
         }
-
         [HttpPost]
-        public IActionResult Configure(Employee model)
+        public async Task<IActionResult> Configure(Employee model)
         {
             if (!ModelState.IsValid)
             {
                 return View("~/Plugins/Misc.NopstationTeamTest/Views/Configure.cshtml", model);
             }
 
-          /*  if (model.Profile != null && model.Profile.Length > 0)
+         /*   if (model.Profile != null && model.Profile.Length > 0)
             {
-                // Perform file save operation here
+                using (var memoryStream = new MemoryStream())
+                {
+                    await model.Profile.CopyToAsync(memoryStream);
+                    model.ProfilePicture = memoryStream.ToArray();
+                }
             }*/
 
             _employeeService.Log(model);
             return RedirectToAction("Configure");
         }
+
     }
 }
