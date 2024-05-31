@@ -1,5 +1,4 @@
-﻿using System;
-using Nop.Data;
+﻿using Nop.Data;
 using Nop.Plugin.Misc.NopstationTeamTest.Domain;
 
 namespace Nop.Plugin.Misc.NopstationTeamTest.Services

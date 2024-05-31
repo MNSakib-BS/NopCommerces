@@ -1,10 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Nop.Core;
-using Nop.Core.Infrastructure;
+﻿using Nop.Core;
 using Nop.Services.Common;
 using Nop.Services.Plugins;
-using System;
-using System.Threading.Tasks;
 
 namespace Nop.Plugin.Misc.NopstationTeamTest
 {
@@ -16,7 +12,7 @@ namespace Nop.Plugin.Misc.NopstationTeamTest
         public NopstationTeamTestPlugin(IWebHelper webHelper)
         {
             _webHelper = webHelper;
-           // _serviceProvider = serviceProvider;
+            // _serviceProvider = serviceProvider;
         }
 
         public override Task InstallAsync()

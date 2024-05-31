@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentMigrator;
+﻿using FluentMigrator;
 using Nop.Data.Extensions;
 using Nop.Data.Migrations;
 using Nop.Plugin.Misc.NopstationTeamTest.Domain;

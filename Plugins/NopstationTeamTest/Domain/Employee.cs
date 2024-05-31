@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.AspNetCore.Http;
-using Nop.Core;
+﻿using Nop.Core;
 
 namespace Nop.Plugin.Misc.NopstationTeamTest.Domain
 {

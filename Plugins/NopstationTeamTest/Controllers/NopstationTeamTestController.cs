@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Nop.Web.Framework.Controllers;
 using Nop.Plugin.Misc.NopstationTeamTest.Domain;
 using Nop.Plugin.Misc.NopstationTeamTest.Services;
+using Nop.Web.Framework.Controllers;
 
 namespace Nop.Plugin.Misc.NopstationTeamTest.Controllers
 {
@@ -30,14 +30,14 @@ namespace Nop.Plugin.Misc.NopstationTeamTest.Controllers
                 return View("~/Plugins/Misc.NopstationTeamTest/Views/Configure.cshtml", model);
             }
 
-         /*   if (model.Profile != null && model.Profile.Length > 0)
-            {
-                using (var memoryStream = new MemoryStream())
-                {
-                    await model.Profile.CopyToAsync(memoryStream);
-                    model.ProfilePicture = memoryStream.ToArray();
-                }
-            }*/
+            /*   if (model.Profile != null && model.Profile.Length > 0)
+               {
+                   using (var memoryStream = new MemoryStream())
+                   {
+                       await model.Profile.CopyToAsync(memoryStream);
+                       model.ProfilePicture = memoryStream.ToArray();
+                   }
+               }*/
 
             _employeeService.Log(model);
             return RedirectToAction("Configure");
