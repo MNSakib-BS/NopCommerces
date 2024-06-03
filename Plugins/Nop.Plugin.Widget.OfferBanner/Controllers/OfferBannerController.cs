@@ -1,8 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Nop.Core;
+using Nop.Core.Infrastructure;
 using Nop.Plugin.Widget.OfferBanner.Models;
-using Nop.Plugin.Widget.OfferBanner.Services;
 using Nop.Services.Configuration;
+using Nop.Services.Localization;
 using Nop.Services.Security;
 using Nop.Web.Framework.Controllers;
 using Nop.Web.Framework.Mvc.Filters;
@@ -10,17 +17,17 @@ using Nop.Web.Framework.Mvc.Filters;
 namespace Nop.Plugin.Widget.OfferBanner.Controllers;
 public class OfferBannerController : BasePluginController
 {
-    OfferBannerServices _offerBannerService;
+
     private IPermissionService _permissionService;
     private IStoreContext _storeContext;
     private ISettingService _settingService;
-
-    public OfferBannerController(OfferBannerServices offerBannerService,
+    
+    public OfferBannerController(
         IPermissionService permissionService,
         IStoreContext storeContext,
         ISettingService settingService)
     {
-        _offerBannerService = offerBannerService;
+
         _permissionService = permissionService;
         _storeContext = storeContext;
         _settingService = settingService;

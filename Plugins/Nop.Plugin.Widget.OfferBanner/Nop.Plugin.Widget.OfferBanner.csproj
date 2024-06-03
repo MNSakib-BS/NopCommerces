@@ -37,7 +37,10 @@
     <None Update="Areas\Admin\Views\OfferBanner\Configure.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Areas\Admin\Views\Shared\_viewImports.cshtml">
+    <None Update="Areas\Admin\Views\_ViewImports.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Views\Shared\Components\OfferBanner\Default.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

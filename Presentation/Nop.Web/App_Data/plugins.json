@@ -70,6 +70,10 @@
     {
       "SystemName": "Widgets.What3words",
       "Version": "4.70.4"
+    },
+    {
+      "SystemName": "Widget.OfferBanner",
+      "Version": "1.0.0"
     }
   ],
   "PluginNamesToUninstall": [],
