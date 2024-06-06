@@ -15,7 +15,7 @@ namespace Nop.Plugin.Widget.OfferBanner.Infrastructure
 
         public void RegisterRoutes(IEndpointRouteBuilder endpointRouteBuilder)
         {
-            endpointRouteBuilder.MapControllerRoute("Wdiget.OfferBanner.Configure",
+            endpointRouteBuilder.MapControllerRoute("Widget.OfferBanner.Configure",
                 $"/Admin/OfferBanner/Configure",
                 new { area = "Admin", controller = "OfferBanner", action = "Configure" });
 
