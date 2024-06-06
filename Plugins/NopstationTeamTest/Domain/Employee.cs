@@ -10,6 +10,17 @@ namespace Nop.Plugin.Misc.NopstationTeamTest.Domain
         public byte[] ProfilePicture { get; set; }*/ // Add this line
         public bool IsMVP { get; set; }
         public bool IsNopCommerceCertified { get; set; }
+        public int EmployeeStatusId { get; set; }
+        public EmployeeStatus EmployeeStatus { 
+            get=> (EmployeeStatus)EmployeeStatusId; 
+            set=> EmployeeStatusId=(int)value; 
+        }
     }
+    public enum EmployeeStatus
+    {
+        Active = 10,
 
+        Inactive = 20,
+        blocked = 30
+    }
 }

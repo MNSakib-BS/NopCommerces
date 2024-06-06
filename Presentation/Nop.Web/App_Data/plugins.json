@@ -25,7 +25,7 @@
     },
     {
       "SystemName": "Misc.NopstationTeamTest",
-      "Version": "1.0.0"
+      "Version": "1.0.1"
     },
     {
       "SystemName": "Misc.Omnisend",
@@ -76,7 +76,9 @@
       "Version": "1.0.0"
     }
   ],
-  "PluginNamesToUninstall": [],
+  "PluginNamesToUninstall": [
+    "Misc.NopstationTeamTest"
+  ],
   "PluginNamesToDelete": [
     "ExternalAuth.Facebook",
     "MultiFactorAuth.GoogleAuthenticator",
