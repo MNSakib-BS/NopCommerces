@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Nop.Web.Framework.Models;
 using Nop.Web.Framework.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +36,12 @@ namespace Nop.Plugin.Misc.NopstationTeamTest.Models
         public string EmployeeStatusStr { get; set; }
 
         public IList<SelectListItem> AvailableEmployeeStatusOptions { get; set; }
+
+        public string PictureThumbnailUrl { get; set; }
+
+        [UIHint("Picture")]
+        [NopResourceDisplayName("Admin.Misc.Developer.Fields.Picture")]
+        public int PictureId { get; set; }
 
 
 

@@ -20,16 +20,6 @@ namespace Nop.Plugin.Misc.NopstationTeamTest
 
         public override async Task InstallAsync()
         {
-            
-            await base.InstallAsync();
-        }
-
-        public override async Task UninstallAsync()
-        {
-            await base.UninstallAsync();
-        }
-        public override async Task UpdateAsync(string currentVersion, string targetVersion)
-        {
             await _localizationService.AddOrUpdateLocaleResourceAsync(new Dictionary<string, string>
             {
                 ["Admin.Misc.Employees"] = "Employees",
@@ -53,6 +43,17 @@ namespace Nop.Plugin.Misc.NopstationTeamTest
                 ["Admin.Misc.Employee.List.Name.Hint"] = "Search by employee name.",
                 ["Admin.Misc.Employee.List.EmployeeStatus.Hint"] = "Search by employee status.",
             });
+
+            await base.InstallAsync();
+        }
+
+        public override async Task UninstallAsync()
+        {
+            await base.UninstallAsync();
+        }
+        public override async Task UpdateAsync(string currentVersion, string targetVersion)
+        {
+           
             await base.UpdateAsync(currentVersion, targetVersion);
         }
       

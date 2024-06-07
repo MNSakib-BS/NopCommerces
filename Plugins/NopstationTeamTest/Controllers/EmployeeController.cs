@@ -4,6 +4,7 @@ using Nop.Plugin.Misc.NopstationTeamTest.Domain;
 using Nop.Plugin.Misc.NopstationTeamTest.Factories;
 using Nop.Plugin.Misc.NopstationTeamTest.Models;
 using Nop.Plugin.Misc.NopstationTeamTest.Services;
+using Nop.Services.Media;
 using Nop.Web.Framework;
 using Nop.Web.Framework.Controllers;
 using Nop.Web.Framework.Mvc.Filters;
@@ -17,12 +18,15 @@ namespace Nop.Plugin.Misc.NopstationTeamTest.Controllers
     {
         private readonly IEmployeeService _employeeService;
         private readonly IEmployeeModelFactory _employeeModelFactory;
+        protected readonly IPictureService _pictureService;
 
         public EmployeeController(IEmployeeService employeeService,
-            IEmployeeModelFactory employeeModelFactory)
+            IEmployeeModelFactory employeeModelFactory,
+            IPictureService pictureService)
         {
             _employeeModelFactory = employeeModelFactory;   
             _employeeService = employeeService;
+            _pictureService = pictureService;
         }
         public async Task<IActionResult> List()
         {
@@ -58,10 +62,13 @@ namespace Nop.Plugin.Misc.NopstationTeamTest.Controllers
                     EmployeeStatusId = model.EmployeeStatusId,
                     IsMVP = model.IsMVP,
                     IsNopCommerceCertified = model.IsNopCommerceCertified,
-                    Name = model.Name
+                    Name = model.Name,
+                    PictureId = model.PictureId
+                    
                 };
 
                 await _employeeService.InsertEmployeeAsync(employee);
+                await UpdatePictureSeoNamesAsync(employee);
 
                 return continueEditing ? RedirectToAction("Edit" , new {id = employee.Id}): RedirectToAction("List");
             }
@@ -70,6 +77,13 @@ namespace Nop.Plugin.Misc.NopstationTeamTest.Controllers
             model = await _employeeModelFactory.PrepareEmployeeModelAsyc(model, null);
             return View("~/Plugins/Misc.NopstationTeamTest/Views/Employee/Create.cshtml", model);
         }
+        protected virtual async Task UpdatePictureSeoNamesAsync(Employee employee)
+        {
+            var picture = await _pictureService.GetPictureByIdAsync(employee.PictureId);
+            if (picture != null)
+                await _pictureService.SetSeoFilenameAsync(picture.Id, await _pictureService.GetPictureSeNameAsync(employee.Name));
+        }
+
         public async Task<IActionResult> Edit(int id)
         {
             var employee = await _employeeService.GetEmployeeByIdAsync(id);
@@ -95,7 +109,8 @@ namespace Nop.Plugin.Misc.NopstationTeamTest.Controllers
             ModelState.Clear();
             if (ModelState.IsValid)
             {
-               
+                var prevPictureId = employee.PictureId;
+
                 employee.Designation = model.Designation;
                 employee.EmployeeStatusId = model.EmployeeStatusId;
                 employee.IsMVP = model.IsMVP;
@@ -104,12 +119,23 @@ namespace Nop.Plugin.Misc.NopstationTeamTest.Controllers
 
              
                 await _employeeService.UpdateEmployeeAsync(employee);
+                if (prevPictureId > 0 && prevPictureId != employee.PictureId)
+                {
+                    var prevPicture = await _pictureService.GetPictureByIdAsync(prevPictureId);
+                    if (prevPicture != null)
+                        await _pictureService.DeletePictureAsync(prevPicture);
+                }
+
+                // Update picture SEO filename
+                await UpdatePictureSeoNamesAsync(employee);
                 return RedirectToAction("List");
             }
 
             
             model = await _employeeModelFactory.PrepareEmployeeModelAsyc(model, employee);
-            return View("~/Plugins/Misc.NopstationTeamTest/Views/Employee/Edit.cshtml", model);
+
+            return continueEditing ? RedirectToAction("Edit", new { id = employee.Id }) : View("~/Plugins/Misc.NopstationTeamTest/Views/Employee/Edit.cshtml", model);
+
         }
 
         [HttpPost]
